@@ -1,0 +1,80 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Contacts
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Contact Form')
+    link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='css/demo.css')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(src='https://www.google.com/recaptcha/api.js')  
+    link(rel='stylesheet', type='text/css', href='css/dem.css')
+  body
+    .container
+      // Codrops top bar
+      nav.navbar.navbar-inverse.bg-inverse
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+          a.navbar-brand(href='index.html') Home
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='#')
+                strong menu 1
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#')
+                strong menu 2
+            li
+              a(href='#')
+                strong menu 3
+            li
+              a(href='#')
+                strong menu 4
+      br
+      br
+      .col-md-6
+        != messages('messages', locals)
+        form#contact-form(method='post', action='/mail/contactHandler', role='form', name='contact-form')
+          #messages
+          .row
+            .col-md-6
+              label(for='form_name') Name
+              input#form_name.form-control(type='text', name='name', placeholder='Please enter your name')
+          .row
+            .col-md-6
+              label(for='form_email') Email *
+              input#form_email.form-control(type='email', name='email', placeholder='Please enter your email *', required='required', data-error='Valid email is required.')
+            .col-md-6
+              label(for='form_phone') Phone
+              input#form_phone.form-control(type='tel', name='phone', placeholder='Please enter your phone')
+          .row
+            .col-md-12
+              label(for='form_message') Message
+              textarea#form_message.form-control(name='message', placeholder='Message for me', rows='4')
+            .col-md-12
+              br
+              .g-recaptcha(data-sitekey='YOUR_DATA_SITE_KEY_HERE')
+              //button.g-recaptcha(data-sitekey='', data-callback='onSubmit') Submit
+              //input.btn.btn-success.btn-send.g-recaptcha(data-sitekey='', data-callback='onSubmit' type='submit', value='Send message')
+              br
+              input.btn.btn-success.btn-send(type='submit', value='Send message')
+          .row
+            .col-md-12
+              p.text-muted
+                strong *
+                |  Required fields.
+                br
+        #thankyou_message
+          h4
+            em Thanks!
+        // </header>
+      .col-md-6
+        br
+        .g-hangout(data-render='createhangout')
+      script(src='https://apis.google.com/js/platform.js', async='', defer='')

@@ -1,0 +1,20 @@
+{
+  "name": "RC",
+  "version": "0.0.1",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.16.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "google-spreadsheet": "^2.0.6",
+    "iplocation": "^5.0.1",
+    "ipware": "^1.0.0",
+    "nodemailer": "^4.6.8",
+    "npm": "^6.4.1",
+    "pug": "^2.0.3"
+  }
+}
